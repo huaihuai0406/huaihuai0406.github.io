@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Konwalia">
 <meta property="og:description" content="grep 只保留指定后缀的文件1grep -r -i --include \*.h --include \*.cpp CP_Image ~/path[12345] | mailx -s GREP email@domain.com  利用ssh隧道转发端口123# 参数 -C 压缩 -f fork -L 本地监听转发到远程 -R 远程监听转发到本地 -N Do not execute a shell">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-06T02:32:44.067Z">
+<meta property="og:updated_time" content="2020-03-06T03:41:58.695Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux_tips">
 <meta name="twitter:description" content="grep 只保留指定后缀的文件1grep -r -i --include \*.h --include \*.cpp CP_Image ~/path[12345] | mailx -s GREP email@domain.com  利用ssh隧道转发端口123# 参数 -C 压缩 -f fork -L 本地监听转发到远程 -R 远程监听转发到本地 -N Do not execute a shell">
@@ -345,7 +345,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  91
+                  87
                 </span>
               
 
@@ -372,7 +372,7 @@
       
         <h1 id="grep-只保留指定后缀的文件"><a href="#grep-只保留指定后缀的文件" class="headerlink" title="grep 只保留指定后缀的文件"></a>grep 只保留指定后缀的文件</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -r -i --include \*.h --include \*.cpp CP_Image ~/path[12345] | mailx -s GREP email@domain.com</span><br></pre></td></tr></table></figure>
 
-<h1 id="利用ssh隧道转发端口"><a href="#利用ssh隧道转发端口" class="headerlink" title="利用ssh隧道转发端口"></a>利用ssh隧道转发端口</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 参数 -C 压缩 -f fork -L 本地监听转发到远程 -R 远程监听转发到本地 -N Do not execute a shell or command.</span></span><br><span class="line"><span class="comment"># -g Allow remote hosts to connect to forwarded ports.</span></span><br><span class="line">ssh -f -C -L -N -g 13306:remote_host:remote_port user@host</span><br></pre></td></tr></table></figure>
+<h1 id="利用ssh隧道转发端口"><a href="#利用ssh隧道转发端口" class="headerlink" title="利用ssh隧道转发端口"></a>利用ssh隧道转发端口</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 参数 -C 压缩 -f fork -L 本地监听转发到远程 -R 远程监听转发到本地 -N Do not execute a shell or command.</span></span><br><span class="line"><span class="comment"># -g Allow remote hosts to connect to forwarded ports.</span></span><br><span class="line">ssh -NgfCL 13306:remote_host:remote_port user@host</span><br></pre></td></tr></table></figure>
 
 
       
