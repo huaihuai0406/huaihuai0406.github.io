@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="k-vim VERSION: 9.2   LAST_UPDATE_TIME: 2017-07-29   本次更新: 小版本更新, 支持vim8异步语法检查  详细 更新日志 目标 Just a Better Vim Config. Keep it Simple.  PS: 服务器端无插件k-vim简化版本(curl直接设置vimrc即可)vim-for-server / vscode-vim配置(">
+<meta property="og:type" content="article">
+<meta property="og:title" content="K-Vim-Doc">
+<meta property="og:url" content="https://konwalia.me/2020/03/06/k-vim-doc/index.html">
+<meta property="og:site_name" content="Konwalia">
+<meta property="og:description" content="k-vim VERSION: 9.2   LAST_UPDATE_TIME: 2017-07-29   本次更新: 小版本更新, 支持vim8异步语法检查  详细 更新日志 目标 Just a Better Vim Config. Keep it Simple.  PS: 服务器端无插件k-vim简化版本(curl直接设置vimrc即可)vim-for-server / vscode-vim配置(">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://github.com/wklken/gallery/blob/master/vim/solarized.png?raw=true">
+<meta property="og:image" content="https://github.com/wklken/gallery/blob/master/vim/molokai.png?raw=true">
+<meta property="og:image" content="https://raw.githubusercontent.com/wklken/gallery/master/donation/donation_w.jpg">
+<meta property="og:updated_time" content="2020-03-06T01:10:40.041Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="K-Vim-Doc">
+<meta name="twitter:description" content="k-vim VERSION: 9.2   LAST_UPDATE_TIME: 2017-07-29   本次更新: 小版本更新, 支持vim8异步语法检查  详细 更新日志 目标 Just a Better Vim Config. Keep it Simple.  PS: 服务器端无插件k-vim简化版本(curl直接设置vimrc即可)vim-for-server / vscode-vim配置(">
+<meta name="twitter:image" content="https://github.com/wklken/gallery/blob/master/vim/solarized.png?raw=true">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://konwalia.me/2020/03/06/k-vim-doc/">
+
+
+
+
+
+  <title>K-Vim-Doc | Konwalia</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Konwalia</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-top">
+          <a href="/top/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-signal"></i> <br>
+            
+            热榜
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://konwalia.me/2020/03/06/k-vim-doc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Konwalia">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.JPEG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Konwalia">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">K-Vim-Doc</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-06T09:10:11+08:00">
+                2020-03-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/03/06/k-vim-doc/" class="leancloud_visitors" data-flag-title="K-Vim-Doc">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.8k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="k-vim"><a href="#k-vim" class="headerlink" title="k-vim"></a>k-vim</h1><blockquote>
+<p>VERSION: 9.2</p>
+</blockquote>
+<blockquote>
+<p>LAST_UPDATE_TIME: 2017-07-29</p>
+</blockquote>
+<blockquote>
+<p>本次更新: 小版本更新, 支持vim8异步语法检查</p>
+</blockquote>
+<p>详细 <a href="https://github.com/wklken/k-vim/wiki/UPDATE_LOG" target="_blank" rel="noopener">更新日志</a></p>
+<h1 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h1><blockquote>
+<p>Just a Better Vim Config. Keep it Simple.</p>
+</blockquote>
+<p><strong>PS</strong>: 服务器端无插件<code>k-vim</code>简化版本(curl直接设置vimrc即可)<a href="https://github.com/wklken/vim-for-server" target="_blank" rel="noopener">vim-for-server</a> / vscode-vim配置(尽量一致的键位) <a href="https://github.com/wklken/k-vim-vscode" target="_blank" rel="noopener">k-vim-vscode</a></p>
+<p><strong>PPS</strong>: 一份tmux配置 <a href="https://github.com/wklken/k-tmux" target="_blank" rel="noopener">k-tmux</a></p>
+<hr>
+<hr>
+<h1 id="截图"><a href="#截图" class="headerlink" title="截图"></a>截图</h1><p>solarized主题</p>
+<p><img src="https://github.com/wklken/gallery/blob/master/vim/solarized.png?raw=true" alt="solarized"></p>
+<p>molokai主题</p>
+<p><img src="https://github.com/wklken/gallery/blob/master/vim/molokai.png?raw=true" alt="molokai"></p>
+<hr>
+<hr>
+<h1 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h1><h3 id="1-clone-到本地"><a href="#1-clone-到本地" class="headerlink" title="1. clone 到本地"></a>1. clone 到本地</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/wklken/k-vim.git</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-安装依赖包"><a href="#2-安装依赖包" class="headerlink" title="2. 安装依赖包"></a>2. 安装依赖包</h3><h5 id="2-1-系统依赖-ctags-ag-the-silver-searcher"><a href="#2-1-系统依赖-ctags-ag-the-silver-searcher" class="headerlink" title="2.1 系统依赖 # ctags, ag(the_silver_searcher)"></a>2.1 系统依赖 # ctags, ag(the_silver_searcher)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># ubuntu</span><br><span class="line">sudo apt-get install ctags</span><br><span class="line">sudo apt-get install build-essential cmake python-dev  #编译YCM自动补全插件依赖</span><br><span class="line">sudo apt-get install silversearcher-ag</span><br><span class="line"></span><br><span class="line"># centos</span><br><span class="line">sudo yum install python-devel.x86_64</span><br><span class="line">sudo yum groupinstall &apos;Development Tools&apos;</span><br><span class="line">sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm</span><br><span class="line">sudo yum install the_silver_searcher</span><br><span class="line">sudo yum install cmake</span><br><span class="line"></span><br><span class="line"># mac</span><br><span class="line">brew install ctags</span><br><span class="line">brew install the_silver_searcher</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-2-使用Python"><a href="#2-2-使用Python" class="headerlink" title="2.2 使用Python"></a>2.2 使用Python</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install flake8 yapf</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-3-如果使用Javascript-不需要的跳过"><a href="#2-3-如果使用Javascript-不需要的跳过" class="headerlink" title="2.3 如果使用Javascript(不需要的跳过)"></a>2.3 如果使用Javascript(不需要的跳过)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 安装jshint和jslint,用于javascript语法检查</span><br><span class="line"># 需要nodejs支持,各个系统安装见文档 https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager</span><br><span class="line"></span><br><span class="line"># ubuntu</span><br><span class="line">sudo apt-get install nodejs npm</span><br><span class="line">sudo npm install -g jslint</span><br><span class="line">sudo npm install jshint -g</span><br><span class="line">sudo npm install -g eslint eslint-plugin-standard eslint-plugin-promise eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-html babel-eslint</span><br><span class="line"></span><br><span class="line"># mac</span><br><span class="line">brew install node</span><br><span class="line">npm install jshint -g</span><br><span class="line">npm install jslint -g</span><br><span class="line">npm install -g eslint eslint-plugin-standard eslint-plugin-promise eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-html babel-eslint</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-安装"><a href="#3-安装" class="headerlink" title="3. 安装"></a>3. 安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">进入目录, 执行安装</span><br><span class="line"># 注意原先装过的童鞋, 重装时，不要到~/.vim下执行(这是软连接指向k-vim真是目录)，必须到k-vim原生目录执行</span><br><span class="line"># 会进入安装插件的列表，一安装是从github clone的，完全取决于网速, 之后会自动编译 YCM, 编译失败的话需要手动编译, 有问题见YCM文档</span><br><span class="line"># 如果发现有插件安装失败 可以进入vim, 执行`:PlugInstall&apos;</span><br><span class="line"></span><br><span class="line">cd k-vim/</span><br><span class="line">sh -x install.sh</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<h1 id="移除安装"><a href="#移除安装" class="headerlink" title="移除安装"></a>移除安装</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~ &amp;&amp; rm -rf .vim .vimrc .vimrc.bundles &amp;&amp; cd -</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><p>详见 <a href="https://github.com/wklken/k-vim/wiki" target="_blank" rel="noopener">wiki</a> 以及  <a href="https://github.com/wklken/k-vim/issues" target="_blank" rel="noopener">issues</a></p>
+<hr>
+<hr>
+<h1 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h1><h3 id="选择安装插件集合"><a href="#选择安装插件集合" class="headerlink" title="选择安装插件集合"></a>选择安装插件集合</h3><p>编辑vimrc.bundles中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&quot; more options: [&apos;json&apos;, &apos;nginx&apos;, &apos;golang&apos;, &apos;ruby&apos;, &apos;less&apos;, &apos;json&apos;, ]</span><br><span class="line">let g:bundle_groups=[&apos;python&apos;, &apos;javascript&apos;, &apos;markdown&apos;, &apos;html&apos;, &apos;css&apos;, &apos;tmux&apos;, &apos;beta&apos;]</span><br></pre></td></tr></table></figure>
+
+<p>选定集合后, 使用插件管理工具进行安装/更新</p>
+<h3 id="插件管理"><a href="#插件管理" class="headerlink" title="插件管理"></a>插件管理</h3><p>使用 <a href="https://github.com/junegunn/vim-plug" target="_blank" rel="noopener">vim-plug</a> 管理插件</p>
+<p><code>vim-plug</code> 常见问题: <a href="https://github.com/junegunn/vim-plug/wiki/faq" target="_blank" rel="noopener">vim-plug faq</a> / <a href="https://github.com/junegunn/vim-plug/wiki/faq#youcompleteme-timeout" target="_blank" rel="noopener">YCM timeout</a><br>／<a href="https://github.com/LooEv/A-bridge-to-YouCompleteMe" target="_blank" rel="noopener">YCM 国人在国内做的镜像</a></p>
+<p>管理插件的命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">:PlugInstall     install                      安装插件</span><br><span class="line">:PlugUpdate      install or update            更新插件</span><br><span class="line">:PlugClean       remove plugin not in list    删除本地无用插件</span><br><span class="line">:PlugUpgrade     Upgrade vim-plug itself      升级本身</span><br><span class="line">:PlugStatus      Check the status of plugins  查看插件状态</span><br></pre></td></tr></table></figure>
+
+<h3 id="插件列表"><a href="#插件列表" class="headerlink" title="插件列表"></a>插件列表</h3><p>说明/演示/自定义快捷键等, 待处理</p>
+<hr>
+<hr>
+<h1 id="自定义快捷键"><a href="#自定义快捷键" class="headerlink" title="自定义快捷键"></a>自定义快捷键</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line">注意, 以下 &apos;,&apos; 代表&lt;leader&gt;</span><br><span class="line">1. 可以自己修改vimrc中配置，决定是否开启鼠标</span><br><span class="line"></span><br><span class="line">set mouse-=a           &quot; 鼠标暂不启用, 键盘党....</span><br><span class="line">set mouse=a            &quot; 开启鼠标</span><br><span class="line"></span><br><span class="line">2. 退出vim后，内容显示在终端屏幕, 可以用于查看和复制, 如果不需要可以关掉</span><br><span class="line">    好处：误删什么的，如果以前屏幕打开，可以找回....惨痛的经历</span><br><span class="line"></span><br><span class="line">set t_ti= t_te=</span><br><span class="line"></span><br><span class="line">3. 可以自己修改vimrc决定是否使用方向键进行上下左右移动，默认关闭，强迫自己用 hjkl，可以注解</span><br><span class="line">hjkl  上下左右</span><br><span class="line"></span><br><span class="line">map &lt;Left&gt; &lt;Nop&gt;</span><br><span class="line">map &lt;Right&gt; &lt;Nop&gt;</span><br><span class="line">map &lt;Up&gt; &lt;Nop&gt;</span><br><span class="line">map &lt;Down&gt; &lt;Nop&gt;</span><br><span class="line"></span><br><span class="line">4. 上排F功能键</span><br><span class="line"></span><br><span class="line">F1 废弃这个键,防止调出系统帮助</span><br><span class="line">F2 set nu/nonu,行号开关，用于鼠标复制代码用</span><br><span class="line">F3 set list/nolist,显示可打印字符开关</span><br><span class="line">F4 set wrap/nowrap,换行开关</span><br><span class="line">F5 set paste/nopaste,粘贴模式paste_mode开关,用于有格式的代码粘贴</span><br><span class="line">F6 syntax on/off,语法开关，关闭语法可以加快大文件的展示</span><br><span class="line"></span><br><span class="line">F9 tagbar</span><br><span class="line">F10 运行当前文件(quickrun)</span><br><span class="line"></span><br><span class="line">5. 分屏移动</span><br><span class="line"></span><br><span class="line">ctrl + j/k/h/l   进行上下左右窗口跳转,不需要ctrl+w+jkhl</span><br><span class="line"></span><br><span class="line">6. 搜索</span><br><span class="line">&lt;space&gt; 空格，进入搜索状态</span><br><span class="line">/       同上</span><br><span class="line">,/      去除匹配高亮</span><br><span class="line"></span><br><span class="line">(交换了#/* 号键功能, 更符合直觉, 其实是离左手更近)</span><br><span class="line">#       正向查找光标下的词</span><br><span class="line">*       反向查找光标下的词</span><br><span class="line"></span><br><span class="line">优化搜索保证结果在屏幕中间</span><br><span class="line"></span><br><span class="line">7. tab操作</span><br><span class="line">ctrl+t 新建一个tab</span><br><span class="line"></span><br><span class="line">(hjkl)</span><br><span class="line">,th    切第1个tab</span><br><span class="line">,tl    切最后一个tab</span><br><span class="line">,tj    下一个tab</span><br><span class="line">,tk    前一个tab</span><br><span class="line"></span><br><span class="line">,tn    下一个tab(next)</span><br><span class="line">,tp    前一个tab(previous)</span><br><span class="line"></span><br><span class="line">,td    关闭tab</span><br><span class="line">,te    tabedit</span><br><span class="line">,tm    tabm</span><br><span class="line"></span><br><span class="line">,1     切第1个tab</span><br><span class="line">,2     切第2个tab</span><br><span class="line">...</span><br><span class="line">,9     切第9个tab</span><br><span class="line">,0     切最后一个tab</span><br><span class="line"></span><br><span class="line">,tt 最近使用两个tab之间切换</span><br><span class="line">(可修改配置位 ctrl+o,  但是ctrl+o/i为系统光标相关快捷键, 故不采用)</span><br><span class="line"></span><br><span class="line">8. buffer操作(不建议, 建议使用ctrlspace插件来操作)</span><br><span class="line">[b    前一个buffer</span><br><span class="line">]b    后一个buffer</span><br><span class="line">&lt;-    前一个buffer</span><br><span class="line">-&gt;    后一个buffer</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">9. 按键修改</span><br><span class="line">Y         =y$   复制到行尾</span><br><span class="line">U         =Ctrl-r</span><br><span class="line">,sa       select all,全选</span><br><span class="line">gv        选中并高亮最后一次插入的内容</span><br><span class="line">,v        选中段落</span><br><span class="line">kj        代替&lt;Esc&gt;，不用到角落去按esc了</span><br><span class="line"></span><br><span class="line">,q     :q，退出vim</span><br><span class="line">,w     :w, 保存当前文件</span><br><span class="line"></span><br><span class="line">ctrl+n    相对/绝对行号切换</span><br><span class="line">&lt;enter&gt;   normal模式下回车选中当前项</span><br><span class="line"></span><br><span class="line">更多细节优化:</span><br><span class="line">    1. j/k 对于换行展示移动更友好</span><br><span class="line">    2. HL 修改成 ^$, 更方便在同行移动</span><br><span class="line">    3. ; 修改成 : ，一键进入命令行模式，不需要按shift</span><br><span class="line">    4. 命令行模式 ctrl+a/e 到开始结尾</span><br><span class="line">    5. &lt;和&gt; 代码缩进后自动再次选中, 方便连续多次缩进, esc退出</span><br><span class="line">    6. 对py文件，保存自动去行尾空白，打开自动加行首代码</span><br><span class="line">    7. &apos;w!!&apos;强制保存, 即使readonly</span><br><span class="line">    8. 去掉错误输入提示</span><br><span class="line">    9. 交换\`和&apos;, &apos;能跳转到准确行列位置</span><br><span class="line">    10. python/ruby 等, 保存时自动去行尾空白</span><br><span class="line">    11. 统一所有分屏打开的操作位v/s[nerdtree/ctrlspace] (特殊ctrlp ctrl+v/x)</span><br><span class="line">    12. &apos;,zz&apos; 代码折叠toggle</span><br><span class="line">    13. python使用&quot;&quot;&quot;添加docstring会自动补全三引号</span><br><span class="line">    14. Python使用#进行注释时, 自动缩进</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<h3 id="UPDATE-LOG"><a href="#UPDATE-LOG" class="headerlink" title="UPDATE_LOG"></a>UPDATE_LOG</h3><p>version 9.2</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">插件部分:</span><br><span class="line">1. 增加 w0rp/ale 异步语法检查插件, 用户vim版本为8.0时自动启用. 非8时, 启用默认scrooloose/syntastic, 两套插件快捷键一致</span><br><span class="line">2. 切换使用flake8作为python风格检查(pip install pep8)</span><br><span class="line">3. 启用yapf作为python代码格式化(pip install yapf)</span><br><span class="line">4. 启用eslint作为javascript代码检查</span><br><span class="line">5. YCM 设置回车选中不再弹补全框</span><br><span class="line"></span><br><span class="line">细节:</span><br><span class="line">1. 新增快捷键 gv 选中并高亮最后一次插入的内容</span><br></pre></td></tr></table></figure>
+
+<h3 id="Contributors"><a href="#Contributors" class="headerlink" title="Contributors"></a>Contributors</h3><p>thx a lot. 可以给我提pull request:)</p>
+<p>查看详情 <a href="https://github.com/wklken/k-vim/graphs/contributors" target="_blank" rel="noopener">git-contributors</a></p>
+<h3 id="Inspire"><a href="#Inspire" class="headerlink" title="Inspire"></a>Inspire</h3><ol>
+<li><p>vimrc文件布局<code>vimrc+vimrc.bundles</code>配置方式参考 <a href="https://github.com/square/maximum-awesome" target="_blank" rel="noopener">maximum-awesome</a></p>
+</li>
+<li><p>install.sh 参考<code>spf13-vim</code> ç<code>bootstrap.sh</code> <a href="https://github.com/spf13/spf13-vim" target="_blank" rel="noopener">spf13-vim</a></p>
+</li>
+<li><p>插件管理使用<a href="https://github.com/junegunn/vim-plug" target="_blank" rel="noopener">Vim-plug</a></p>
+</li>
+<li><p>自动补全 <a href="https://github.com/Valloric/YouCompleteMe" target="_blank" rel="noopener">YCM</a></p>
+</li>
+<li><p>插件挑选 <a href="http://vimawesome.com/" target="_blank" rel="noopener">VimAwesome</a></p>
+</li>
+</ol>
+<h3 id="Resources"><a href="#Resources" class="headerlink" title="Resources"></a>Resources</h3><p><a href="http://www.wklken.me/posts/2014/10/03/vim-resources.html" target="_blank" rel="noopener">链接</a></p>
+<h3 id="Donation"><a href="#Donation" class="headerlink" title="Donation"></a>Donation</h3><p>如果你认为对你有所帮助, You can Buy me a coffee:)</p>
+<p><img src="https://raw.githubusercontent.com/wklken/gallery/master/donation/donation_w.jpg" alt="donation"></p>
+<hr>
+<hr>
+<p>The End!</p>
+<p>wklken (凌岳/pythoner/vim党预备党员)</p>
+<p>Github: <a href="https://github.com/wklken" target="_blank" rel="noopener">https://github.com/wklken</a></p>
+<p>Blog: <a href="http://www.wklken.me" target="_blank" rel="noopener">http://www.wklken.me</a></p>
+<p>2013-06-11 于深圳</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/05/linux-tips/" rel="next" title="Linux_tips">
+                <i class="fa fa-chevron-left"></i> Linux_tips
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.JPEG" alt="Konwalia">
+            
+              <p class="site-author-name" itemprop="name">Konwalia</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#k-vim"><span class="nav-number">1.</span> <span class="nav-text">k-vim</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#目标"><span class="nav-number">2.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#截图"><span class="nav-number">3.</span> <span class="nav-text">截图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装步骤"><span class="nav-number">4.</span> <span class="nav-text">安装步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-clone-到本地"><span class="nav-number">4.0.1.</span> <span class="nav-text">1. clone 到本地</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-安装依赖包"><span class="nav-number">4.0.2.</span> <span class="nav-text">2. 安装依赖包</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-系统依赖-ctags-ag-the-silver-searcher"><span class="nav-number">4.0.2.0.1.</span> <span class="nav-text">2.1 系统依赖 # ctags, ag(the_silver_searcher)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-使用Python"><span class="nav-number">4.0.2.0.2.</span> <span class="nav-text">2.2 使用Python</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-3-如果使用Javascript-不需要的跳过"><span class="nav-number">4.0.2.0.3.</span> <span class="nav-text">2.3 如果使用Javascript(不需要的跳过)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-安装"><span class="nav-number">4.0.3.</span> <span class="nav-text">3. 安装</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#移除安装"><span class="nav-number">5.</span> <span class="nav-text">移除安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常见问题"><span class="nav-number">6.</span> <span class="nav-text">常见问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#插件"><span class="nav-number">7.</span> <span class="nav-text">插件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#选择安装插件集合"><span class="nav-number">7.0.1.</span> <span class="nav-text">选择安装插件集合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插件管理"><span class="nav-number">7.0.2.</span> <span class="nav-text">插件管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插件列表"><span class="nav-number">7.0.3.</span> <span class="nav-text">插件列表</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自定义快捷键"><span class="nav-number">8.</span> <span class="nav-text">自定义快捷键</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UPDATE-LOG"><span class="nav-number">8.0.1.</span> <span class="nav-text">UPDATE_LOG</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Contributors"><span class="nav-number">8.0.2.</span> <span class="nav-text">Contributors</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inspire"><span class="nav-number">8.0.3.</span> <span class="nav-text">Inspire</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Resources"><span class="nav-number">8.0.4.</span> <span class="nav-text">Resources</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Donation"><span class="nav-number">8.0.5.</span> <span class="nav-text">Donation</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Konwalia</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">4.1k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("7yeVg5UnBDP16t3KK29AmSBG-gzGzoHsz", "CK45dK9DEUtYUGzf2XV3vxPv");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
